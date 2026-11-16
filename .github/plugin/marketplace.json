@@ -1,0 +1,8 @@
+{
+  "name": "whyslow",
+  "description": "Find out why your Mac is slow and what fills its disk, then clean developer caches safely.",
+  "owner": { "name": "Aayush Poudel", "url": "https://github.com/cyberbandityt" },
+  "plugins": [
+    { "name": "whyslow", "description": "Find out why your Mac is slow and what fills its disk, then clean developer caches safely.", "source": "./", "category": "productivity", "skills": "skills/" }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "whyslow",
+  "version": "0.1.0",
+  "description": "Find out why your Mac is slow and what fills its disk, then clean developer caches safely.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "os": [
+    "darwin"
+  ],
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node --no-warnings skills/whyslow/scripts/whyslow.ts",
+    "test": "node --test 'test/*.test.ts'",
+    "check": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "^5.9.3"
+  }
+}

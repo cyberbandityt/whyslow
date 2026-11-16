@@ -1,0 +1,19 @@
+{
+  "name": "whyslow",
+  "version": "0.1.0",
+  "description": "Find out why your Mac is slow and what fills its disk, then clean developer caches safely.",
+  "author": { "name": "Aayush Poudel", "url": "https://github.com/cyberbandityt" },
+  "homepage": "https://github.com/cyberbandityt/whyslow",
+  "repository": "https://github.com/cyberbandityt/whyslow",
+  "license": "MIT",
+  "keywords": ["macos", "performance", "disk-cleanup", "developer-tools"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "whyslow",
+    "shortDescription": "Why is my Mac slow?",
+    "developerName": "Aayush Poudel",
+    "category": "Productivity",
+    "capabilities": ["Instructions"],
+    "defaultPrompt": ["Why is my Mac slow?", "What is filling my disk?"]
+  }
+}
