@@ -1,0 +1,47 @@
+name: Bug report
+description: whyslow printed something wrong, crashed, or missed a cause.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you ran and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: Paste the whyslow output. Remove any paths or app names you don't want to share.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and chip
+      placeholder: macOS 26.1, Apple M2
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      description: Output of `node --version`.
+      placeholder: v24.2.0
+    validations:
+      required: true
+  - type: dropdown
+    id: agent
+    attributes:
+      label: How you ran it
+      options:
+        - Claude Code
+        - Codex
+        - GitHub Copilot CLI
+        - Gemini CLI / Antigravity
+        - Another agent
+        - Plain CLI
+    validations:
+      required: true

@@ -1,6 +1,18 @@
 # whyslow
 
+[![CI](https://github.com/cyberbandityt/whyslow/actions/workflows/ci.yml/badge.svg)](https://github.com/cyberbandityt/whyslow/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Platform: macOS](https://img.shields.io/badge/platform-macOS-lightgrey.svg)
+
 **Find out why your Mac is slow and what fills its disk, clean caches safely, and see how much better it got.**
+
+![whyslow in a terminal: diagnose a slow Mac, clean caches with a dry run first, then see the score go from 40 to 92](assets/demo.gif)
+
+```bash
+claude plugin marketplace add cyberbandityt/whyslow && claude plugin install whyslow@whyslow
+```
+
+Then ask Claude Code "why is my Mac slow?". For Codex, Copilot CLI, Gemini CLI and other agents, see [Install](#install).
 
 whyslow is a tiny TypeScript CLI packaged as a skill for AI coding agents: Claude Code, Codex, GitHub Copilot CLI, Gemini CLI / Antigravity, or anything that can run a shell command. Ask your agent "why is my Mac slow?" and it runs whyslow, reads the short report, and explains the fixes.
 
@@ -64,27 +76,22 @@ Every install below uses the same `skills/whyslow` folder from this repo. You ne
 
 ### Claude Code
 
-```
-/plugin marketplace add cyberbandityt/whyslow
-```
-```
-/plugin install whyslow@whyslow
+```bash
+claude plugin marketplace add cyberbandityt/whyslow && claude plugin install whyslow@whyslow
 ```
 
-Send these as two separate prompts. Then ask "why is my Mac slow?" or type `/whyslow`.
+Or, inside Claude Code, send `/plugin marketplace add cyberbandityt/whyslow` and then `/plugin install whyslow@whyslow` as two prompts. Then ask "why is my Mac slow?" or type `/whyslow`.
 
 ### Codex
 
 ```bash
-codex plugin marketplace add cyberbandityt/whyslow
-codex plugin add whyslow@whyslow
+codex plugin marketplace add cyberbandityt/whyslow && codex plugin add whyslow@whyslow
 ```
 
 ### GitHub Copilot CLI
 
 ```bash
-copilot plugin marketplace add cyberbandityt/whyslow
-copilot plugin install whyslow@whyslow
+copilot plugin marketplace add cyberbandityt/whyslow && copilot plugin install whyslow@whyslow
 ```
 
 ### Gemini CLI / Antigravity
@@ -216,28 +223,6 @@ These are only reported, never deleted, because they hold personal data, VMs or 
 - `projects` only takes a folder when the file that creates it sits next to it (`Cargo.toml` or `pom.xml` for `target`, `Podfile` for `Pods`, `pyvenv.cfg` inside a venv, and so on), and only in idle projects.
 - The skill tells agents to show you the dry run and wait for your OK before adding `--yes`.
 
-## How it's built
-
-whyslow follows two ideas:
-
-- **[Ponytail](https://github.com/DietrichGebert/ponytail)**: the smallest thing that works. That means the Node standard library and macOS's own tools (`top`, `ps`, `vm_stat`, `du`, `df`, `find`, `launchctl`, `plutil`, `lsof`), no runtime dependencies, no build step, and four small source files.
-- **RTK (Rust Token Killer)**: an agent pays for every token it reads, so the output is one line per finding, with no banners or colors and short sizes like `1.2G`.
-
-```text
-skills/whyslow/
-├── SKILL.md              instructions the agent loads
-└── scripts/
-    ├── whyslow.ts        CLI entry and argument parsing
-    ├── diagnose.ts       snapshot, findings, score, services, progress
-    ├── disk.ts           targets, scan, big, clean with a dry run first
-    └── lib.ts            shell helper, size formatting, history file
-.claude-plugin/           Claude Code plugin and marketplace manifests
-.codex-plugin/            Codex plugin manifest
-.github/plugin/           GitHub Copilot CLI plugin and marketplace manifests
-gemini-extension.json     Gemini CLI / Antigravity extension manifest
-test/whyslow.test.ts      node:test checks for the parsers, rules, finders and delete guard
-```
-
 ## Development
 
 ```bash
@@ -252,8 +237,13 @@ To try your local copy in Claude Code before publishing, run `/plugin marketplac
 ## Publishing a new version
 
 1. Bump `version` in `package.json`, `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, `.github/plugin/plugin.json` and `gemini-extension.json`.
-2. Run `npm run check && npm test`.
-3. Commit, tag (`git tag v0.2.0`) and push with tags. Plugin users get the update the next time their tool refreshes the marketplace.
+2. Add a section for the version to [CHANGELOG.md](CHANGELOG.md).
+3. Run `npm run check && npm test`.
+4. Commit, tag (`git tag v0.2.0`), push with tags, and publish the release with `gh release create v0.2.0 --notes-file <the changelog section>`. Plugin users get the update the next time their tool refreshes the marketplace.
+
+## Contributing
+
+Bug reports, ideas and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md), and look for issues labeled [good first issue](https://github.com/cyberbandityt/whyslow/labels/good%20first%20issue). Questions go to [Discussions](https://github.com/cyberbandityt/whyslow/discussions).
 
 ## Limitations
 
@@ -265,4 +255,4 @@ To try your local copy in Claude Code before publishing, run `/plugin marketplac
 
 ## License
 
-MIT
+[MIT](LICENSE)
