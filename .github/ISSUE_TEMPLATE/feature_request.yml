@@ -1,0 +1,24 @@
+name: Feature request
+description: A new check, clean target, or command.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is slow or full on your Mac that whyslow doesn't explain yet?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea
+      description: For a clean target, include the folder path and whether deleting it is safe (rebuilt on demand) or must stay report-only.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Example output
+      description: How the new line should look. Keep it to one line per finding.
+      render: text
