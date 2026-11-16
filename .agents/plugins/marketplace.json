@@ -1,0 +1,12 @@
+{
+  "name": "whyslow",
+  "interface": { "displayName": "whyslow" },
+  "plugins": [
+    {
+      "name": "whyslow",
+      "source": { "source": "url", "url": "https://github.com/cyberbandityt/whyslow.git", "ref": "main" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -14,6 +14,9 @@
     "developerName": "Aayush Poudel",
     "category": "Productivity",
     "capabilities": ["Instructions"],
-    "defaultPrompt": ["Why is my Mac slow?", "What is filling my disk?"]
+    "defaultPrompt": ["Why is my Mac slow?", "What is filling my disk?"],
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "brandColor": "#5fd38d"
   }
 }

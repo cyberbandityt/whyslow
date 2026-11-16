@@ -4,6 +4,14 @@ All notable changes to whyslow are listed here. The format follows [Keep a Chang
 
 ## Unreleased
 
+### Added
+
+- Plugin icon at `assets/icon.png`, also used as the Codex plugin logo.
+
+### Fixed
+
+- Codex install: added the `.agents/plugins/marketplace.json` catalog Codex reads, and replaced the README's `codex plugin add` step, which doesn't exist, with the `/plugins` browser.
+
 ## 0.1.0 - 2026-11-16
 
 First release.

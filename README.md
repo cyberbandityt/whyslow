@@ -85,8 +85,10 @@ Or, inside Claude Code, send `/plugin marketplace add cyberbandityt/whyslow` and
 ### Codex
 
 ```bash
-codex plugin marketplace add cyberbandityt/whyslow && codex plugin add whyslow@whyslow
+codex plugin marketplace add cyberbandityt/whyslow
 ```
+
+Then install whyslow from the plugin browser: type `/plugins` in the Codex CLI, or open the Plugins tab in the ChatGPT desktop app, choose the whyslow marketplace and install it. Start a new session before you use it.
 
 ### GitHub Copilot CLI
 
